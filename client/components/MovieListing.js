@@ -13,7 +13,6 @@ class MovieListing extends React.Component {
 
   render() {
     const movies = this.props.movies ? this.props.movies : []
-    // const movies = [{title: 'Chicago', id:'001574'},{title: 'Interstellar', id:'157336'}]
 
     if (movies.length === 0) {
       console.log(movies)
@@ -23,9 +22,6 @@ class MovieListing extends React.Component {
         </div>
       );
     }
-
-
-
       return (
         <div>
           <h2>What We're Watching</h2>

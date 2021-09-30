@@ -4,9 +4,10 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import auth from './auth'
 import movies from './popularMovies'
+import searchResults from './search'
 
 //WHATEVER YOU NAME IT HERE IS WHAT IT WILL BE IN MAP STATE!
-const reducer = combineReducers({ auth, movies})
+const reducer = combineReducers({ auth, movies, searchResults})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

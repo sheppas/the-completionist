@@ -1,8 +1,9 @@
 import React from "react"
 import {connect} from "react-redux"
+import { searchMovies } from "../store/search"
 
 
-const Search = (props) => {
+const SearchFunction = (props) => {
   return (
     <div>
       <label htmlFor="search">Find a Movie</label>
@@ -17,10 +18,9 @@ const mapDispatch = (dispatch) => {
     handleSubmit(evt) {
       evt.preventDefault();
       const searchTerm = evt.target.value
-      console.log(searchTerm)
-      // dispatch(searchFunctionTBD(searchTerm))
+      dispatch(searchMovies(searchTerm))
     }
   }
 }
 
-export const Search = connect(null, mapDispatch)(Search)
+export const Search = connect(null, mapDispatch)(SearchFunction)
