@@ -1,6 +1,6 @@
 'use strict'
 
-const {db, models: {User} } = require('../server/db')
+const {db, models: {User, Movie} } = require('../server/db')
 
 /**
  * seed - this function clears the database, updates tables to
@@ -12,18 +12,24 @@ async function seed() {
 
   // Creating Users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({ username: 'cody', email:'cody@cody.com', password: '123' }),
+    User.create({ username: 'murphy', email:'murphy@murphy.com', password: '123' }),
   ])
 
   console.log(`seeded ${users.length} users`)
   console.log(`seeded successfully`)
-  return {
-    users: {
-      cody: users[0],
-      murphy: users[1]
-    }
-  }
+
+  const movies =  await Promise.all([
+    Movie.create({title: 'Chicago', db_id:'001574', rating: 5, watched_date: new Date(), notes: 'This is one of my favorite movie musicals'}),
+    Movie.create({title: 'Interstellar', db_id:'157336', rating: 2, watched_date: new Date(), notes: 'Too many docking scenes for my taste'})
+  ])
+
+  console.log(`seeded ${movies.length} movies`)
+  console.log(`seeded successfully`)
+
+  //WHY ISN'T THIS WORKING?
+  await movies[0].setUsers(users[0]);
+  await movies[1].setUsers(users[1]);
 }
 
 /*
