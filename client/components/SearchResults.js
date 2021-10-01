@@ -12,7 +12,6 @@ class SearchResults extends React.Component {
   render(){
     const movies = this.props.movies ? this.props.movies : []
     if (movies.length === 0) {
-      console.log(movies)
       return (
         <div>
           <h2>It appears these are not the droids you're looking for. Please search again.</h2>
@@ -21,7 +20,7 @@ class SearchResults extends React.Component {
     }
       return (
         <div>
-          <h2>Your Search Results for 'YOUR SEARCH TERM'</h2>
+          <h2>Your Search Results</h2>
           {movies.map((movie) => (
             <div key={movie.id} className='individual-movie'>
               <p>{movie.title}</p>
@@ -34,7 +33,7 @@ class SearchResults extends React.Component {
 
 const mapState = (state) => {
   return {
-    movies: state.movies
+    movies: state.searchResults
   }
 }
 

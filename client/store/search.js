@@ -14,13 +14,15 @@ const setResults = (movies) => {
 
 
 //THUNKS
-export const searchMovies = (searchValue) => async (dispatch) => {
+export const searchMovies = (searchValue, history) => async (dispatch) => {
   try {
+    console.log("this is the searchValue", searchValue)
     const searchString = searchValue.split(' ').join('+')
     const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=964c3023860303f4cb3d17fa3814e4db&query=${searchString}`);
     const movies = res.data.results;
+    console.log("these are the search results", movies)
     dispatch(setResults(movies));
-    history('/search-results')
+    history.push('/search-results')
   } catch (err) {
     console.log(err)
   }
