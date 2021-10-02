@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
+import AddMovieForm from './components/AddMovieForm';
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
 import MovieDetail from './components/MovieDetail';
@@ -29,6 +30,7 @@ class Routes extends Component {
             <Route path="/search-results" component={SearchResults}/>
             <Route path="/movies/:movieId" component={MovieDetail} />
             <Route path="/shelf/:userId" component={UserMoviesListing}/>
+            <Route exact path="/add-movie" component={AddMovieForm} />
           </Switch>
         ) : (
           <Switch>

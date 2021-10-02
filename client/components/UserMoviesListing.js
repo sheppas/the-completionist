@@ -36,7 +36,9 @@ class UserMoviesListing extends React.Component {
           <div key={movie.id} className='individual-users-movie'>
             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} width='150' height='225'/>
             <p>{movie.title}</p>
-            <img src={'../public/images/A_Black_Star.png'}/>
+            <p>Watched: {movie.watched_date}</p>
+            <h3>Your Notes</h3>
+            <p>{movie.notes}</p>
           </div>
         ))}
     </div>
@@ -54,7 +56,6 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getMovies: (userId) => dispatch(fetchUserMovies(userId)),
-    getTMBDMovie: (db_id) => dispatch(fetchMovieTMDB(db_id))
   }
 }
 

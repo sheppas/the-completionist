@@ -1,4 +1,5 @@
 import axios from "axios";
+import history from "../history";
 
 //ACTION TYPE
 const SET_USER_MOVIES = "SET_USER_MOVIES";
@@ -36,6 +37,7 @@ export const addUserMovie = (userId, movie) => {
     try {
       const {data} = await axios.post(`/api/shelf/${userId}`, movie)
       dispatch(_addUserMovie(data))
+      history.push(`/shelf/${userId}`)
     } catch (err) {
       console.log(err);
     }
@@ -48,7 +50,7 @@ export default function (state = [], action) {
     case SET_USER_MOVIES:
       return action.movies;
     case ADD_MOVIE:
-      return [...state, ...action.movie];
+      return [...state, action.movie];
     default:
       return state;
   }

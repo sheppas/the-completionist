@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchMovieTMDB } from "../store/oneMovie";
-import MovieListing from "./MovieListing";
+import { Link } from "react-router-dom";
+
 
 class SingleMovie extends React.Component {
   constructor(props) {
@@ -44,16 +45,19 @@ class SingleMovie extends React.Component {
             Learn more at TMDB
           </a>
         </div>
-        <button>Add to My Movies</button>
+        <Link to={"/add-movie"}>
+          <button>Add to My Movies</button>
+        </Link>
       </div>
     );
   }
 }
 
 const mapState = (state) => {
-  console.log(state);
   return {
     movie: state.oneMovie,
+    user: state.auth,
+    userMovies: state.userMovies
   };
 };
 

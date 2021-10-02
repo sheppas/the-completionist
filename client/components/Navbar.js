@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {logout} from '../store'
 import { Search } from './Search'
 
-const Navbar = ({handleClick, isLoggedIn}) => (
+const Navbar = ({handleClick, isLoggedIn, userId}) => (
   <div>
     <h1>The Completionist</h1>
     <nav>
@@ -15,6 +15,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <a href="#" onClick={handleClick}>
             Logout
           </a>
+          <Link to={`/shelf/${userId}`}>My Movies</Link>
           <Search />
         </div>
       ) : (
@@ -34,7 +35,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
  */
 const mapState = state => {
   return {
-    isLoggedIn: !!state.auth.id
+    isLoggedIn: !!state.auth.id,
+    userId: state.auth.id
   }
 }
 

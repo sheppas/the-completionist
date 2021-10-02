@@ -16,9 +16,7 @@ const setMovie = (movie) => {
 //THUNKS
 export const fetchMovieTMDB = (db_id) => async (dispatch) => {
   try {
-    console.log("this is the db", db_id);
     const res = await axios.get(`https://api.themoviedb.org/3/movie/${db_id}?api_key=964c3023860303f4cb3d17fa3814e4db`);
-    console.log("this is the res", res.data);
     const movie = res.data;
     dispatch(setMovie(movie))
   } catch(err) {

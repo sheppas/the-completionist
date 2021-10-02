@@ -3,19 +3,14 @@ import { connect } from "react-redux";
 import { fetchMovies } from "../store/popularMovies";
 import { Link } from "react-router-dom";
 
+
 class MovieListing extends React.Component {
   constructor(props) {
     super(props);
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   componentDidMount() {
     this.props.getMoviesTMDB();
-  }
-
-  handleSubmit(event){
-    event.preventDefault();
-    //ADD MOVIE THUNK TBD
   }
 
   render() {
