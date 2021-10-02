@@ -10,6 +10,10 @@ const Movie = db.define("movie", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  poster_path: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   rating: {
     type: Sequelize.INTEGER,
     validate: {

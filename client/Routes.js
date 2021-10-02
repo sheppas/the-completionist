@@ -3,8 +3,10 @@ import {connect} from 'react-redux'
 import {withRouter, Route, Switch, Redirect} from 'react-router-dom'
 import { Login, Signup } from './components/AuthForm';
 import Home from './components/Home';
+import MovieDetail from './components/MovieDetail';
 import MovieListing from './components/MovieListing';
 import SearchResults from './components/SearchResults';
+import UserMoviesListing from './components/UserMoviesListing'
 import {me} from './store'
 
 /**
@@ -25,6 +27,8 @@ class Routes extends Component {
             <Route exact path="/" component={MovieListing} />
             <Route exact path="/movies" component={MovieListing} />
             <Route path="/search-results" component={SearchResults}/>
+            <Route path="/movies/:movieId" component={MovieDetail} />
+            <Route path="/shelf/:userId" component={UserMoviesListing}/>
           </Switch>
         ) : (
           <Switch>
