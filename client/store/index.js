@@ -7,9 +7,10 @@ import movies from './popularMovies'
 import searchResults from './search'
 import oneMovie from './oneMovie'
 import userMovies from './userMovies'
+import oneUserMovie from './oneUserMovie'
 
 //WHATEVER YOU NAME IT HERE IS WHAT IT WILL BE IN MAP STATE!
-const reducer = combineReducers({ auth, movies, searchResults, oneMovie, userMovies})
+const reducer = combineReducers({ auth, movies, searchResults, oneMovie, userMovies, oneUserMovie})
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
 )

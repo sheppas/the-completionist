@@ -4,6 +4,7 @@ import history from "../history";
 //ACTION TYPE
 const SET_USER_MOVIES = "SET_USER_MOVIES";
 const ADD_MOVIE = "ADD_MOVIE";
+const DELETE_MOVIE = "DELETE_MOVIE";
 
 //ACTION CREATOR
 const setUserMovies = (movies) => {
@@ -16,6 +17,13 @@ const setUserMovies = (movies) => {
 const _addUserMovie = (movie) => {
   return {
     type: ADD_MOVIE,
+    movie,
+  };
+};
+
+const _deleteMovie = (movie) => {
+  return {
+    type: DELETE_MOVIE,
     movie,
   };
 };
@@ -35,9 +43,21 @@ export const fetchUserMovies = (userId) => {
 export const addUserMovie = (userId, movie) => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.post(`/api/shelf/${userId}`, movie)
-      dispatch(_addUserMovie(data))
-      history.push(`/shelf/${userId}`)
+      const { data } = await axios.post(`/api/shelf/${userId}`, movie);
+      dispatch(_addUserMovie(data));
+      history.push(`/shelf/${userId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+};
+
+export const deleteUserMovie = (userId, movie) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`/api/shelf/${userId}`, {data: movie});
+      dispatch(_deleteMovie(data));
+      history.push(`/shelf/${userId}`);
     } catch (err) {
       console.log(err);
     }
@@ -51,6 +71,8 @@ export default function (state = [], action) {
       return action.movies;
     case ADD_MOVIE:
       return [...state, action.movie];
+    case DELETE_MOVIE:
+      return state.filter((movie) => movie.id !== action.movie)
     default:
       return state;
   }

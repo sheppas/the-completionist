@@ -2,7 +2,8 @@ const router = require("express").Router();
 module.exports = router;
 
 router.use("/users", require("./users"));
-router.use("/shelf", require("./movies"));
+router.use("/shelf", require("./shelf"));
+router.use("/movies", require("./movies"));
 
 router.use((req, res, next) => {
   const error = new Error("Not Found");

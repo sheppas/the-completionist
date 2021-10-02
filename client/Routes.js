@@ -8,6 +8,7 @@ import MovieDetail from './components/MovieDetail';
 import MovieListing from './components/MovieListing';
 import SearchResults from './components/SearchResults';
 import UserMoviesListing from './components/UserMoviesListing'
+import EditMovie from './components/EditMovie';
 import {me} from './store'
 
 /**
@@ -31,6 +32,7 @@ class Routes extends Component {
             <Route path="/movies/:movieId" component={MovieDetail} />
             <Route path="/shelf/:userId" component={UserMoviesListing}/>
             <Route exact path="/add-movie" component={AddMovieForm} />
+            <Route exact path="/edit-movie/:movieId" component={EditMovie} />
           </Switch>
         ) : (
           <Switch>
