@@ -20,8 +20,8 @@ async function seed() {
   console.log(`seeded successfully`)
 
   const movies =  await Promise.all([
-    Movie.create({title: 'Chicago', db_id:'001574', poster_path: '/v1Sg3GuHDz9uhrKqYozOeCMLSpj.jpg', rating: 5, watched_date: new Date(), notes: 'This is one of my favorite movie musicals'}),
-    Movie.create({title: 'Interstellar', db_id:'157336', poster_path: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',rating: 2, watched_date: new Date(), notes: 'Too many docking scenes for my taste'})
+    Movie.create({title: 'Chicago', db_id:'001574', poster_path: '/v1Sg3GuHDz9uhrKqYozOeCMLSpj.jpg', rating: 5, watched_date: 2020-12-22, notes: 'This is one of my favorite movie musicals'}),
+    Movie.create({title: 'Interstellar', db_id:'157336', poster_path: '/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg',rating: 2, watched_date: 2020-11-22, notes: 'Too many docking scenes for my taste'})
   ])
 
   console.log(`seeded ${movies.length} movies`)

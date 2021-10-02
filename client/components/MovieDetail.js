@@ -34,7 +34,7 @@ class SingleMovie extends React.Component {
     }
     return (
       <div>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} width='300' height='450'/>
         <h2>{movie.title}</h2>
         <p>{movie.overview}</p>
         <div>

@@ -8,7 +8,6 @@ class AddMovieForm extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
-    this.createMovieDetails = this.createMovieDetails.bind(this)
     this.state = {
       rating:'',
       watched_date:'',
@@ -24,7 +23,7 @@ class AddMovieForm extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
-    const movieInDBFormat = this.createMovieDetails(this.props.movie)
+    const movieInDBFormat = this.createMovieDetails(this.props.oneMovie)
     this.props.addMovieToShelf(this.props.user.id, movieInDBFormat)
   }
 
@@ -41,11 +40,10 @@ class AddMovieForm extends React.Component {
 
   render(){
     const movie = this.props.oneMovie ? this.props.oneMovie : {};
-    console.log(this.props)
 
     return (
       <div>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
+        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} width='300' height='450' />
         <h2>{movie.title}</h2>
         <form onSubmit={(evt) => this.handleSubmit(evt)}>
           <label htmlFor="rating">Rating:</label>

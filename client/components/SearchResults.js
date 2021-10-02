@@ -3,6 +3,7 @@
 
 import React from "react"
 import {connect} from "react-redux"
+import { Link } from "react-router-dom"
 
 class SearchResults extends React.Component {
   constructor(props) {
@@ -23,7 +24,10 @@ class SearchResults extends React.Component {
           <h2>Your Search Results</h2>
           {movies.map((movie) => (
             <div key={movie.id} className='individual-movie'>
+              <Link to={`/movies/${movie.id}`}>
+              <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} width='150' height='225'/>
               <p>{movie.title}</p>
+              </Link>
             </div>
           ))}
         </div>
