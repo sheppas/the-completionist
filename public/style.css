@@ -208,6 +208,10 @@ button:hover {
   font-size: x-small;
 }
 
+i {
+  color:indianred;
+}
+
 @media only screen and (max-width: 600px) {
   #nav {
     display:flex;

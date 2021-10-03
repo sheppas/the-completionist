@@ -30,6 +30,8 @@
     "morgan": "^1.9.1",
     "node-fetch": "^3.0.0",
     "pg": "^8.5.1",
+    "react-native-star-rating": "^1.1.0",
+    "react-native-vector-icons": "^8.1.0",
     "sequelize": "^6.3.5"
   },
   "devDependencies": {

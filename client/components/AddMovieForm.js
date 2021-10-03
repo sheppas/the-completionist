@@ -16,6 +16,7 @@ class AddMovieForm extends React.Component {
   }
 
   handleChange(evt) {
+
     this.setState({
       [evt.target.name]: evt.target.value,
     });
@@ -55,7 +56,7 @@ class AddMovieForm extends React.Component {
             onSubmit={(evt) => this.handleSubmit(evt)}
             className='movie-form-details'
           >
-            <label htmlFor='rating'>Rating (out of 5):</label>
+            <label htmlFor='rating'>Rating (out of 5, whole numbers only):</label>
             <input
               name='rating'
               onChange={this.handleChange}

@@ -50,9 +50,15 @@ class UserMoviesListing extends React.Component {
                 />
                 <div id='indiv-user-movie-text'>
                   <h3>{movie.title}</h3>
-                  <p>Rating: {movie.rating} out of 5</p>
-                  <p>Watched: {dateFormat(movie.watched_date, "mmmm d, yyyy")}</p>
-                  <p id="user-notes">Your Notes: {movie.notes}</p>
+                  <div id="star-ratings">
+                  {Array.apply(null, {length:movie.rating}).map((e,i) => (
+                    <i className='fas fa-star'></i>
+                  ))}
+                  </div>
+                  <p>
+                    Watched: {dateFormat(movie.watched_date, "mmmm d, yyyy")}
+                  </p>
+                  <p id='user-notes'>Your Notes: {movie.notes}</p>
                   <div id='user-movie-button'>
                     <Link to={`/edit-movie/${movie.id}`}>
                       <button>Edit Movie</button>
