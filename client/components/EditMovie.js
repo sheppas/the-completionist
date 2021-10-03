@@ -80,7 +80,7 @@ class EditMovie extends React.Component {
             onSubmit={(evt) => this.handleSubmit(evt)}
             className='movie-form-details'
           >
-            <label htmlFor='rating'>Rating:</label>
+            <label htmlFor='rating'>Rating (out of 5):</label>
             <input name='rating' onChange={this.handleChange} value={rating} />
             <label htmlFor='notes'>Date:</label>
             <input

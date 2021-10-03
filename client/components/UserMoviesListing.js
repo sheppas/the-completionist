@@ -50,7 +50,7 @@ class UserMoviesListing extends React.Component {
                 />
                 <div id='indiv-user-movie-text'>
                   <h3>{movie.title}</h3>
-                  <p>Rating: {movie.rating}</p>
+                  <p>Rating: {movie.rating} out of 5</p>
                   <p>Watched: {dateFormat(movie.watched_date, "mmmm d, yyyy")}</p>
                   <p id="user-notes">Your Notes: {movie.notes}</p>
                   <div id='user-movie-button'>
