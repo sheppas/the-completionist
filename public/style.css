@@ -153,3 +153,49 @@ button {
   height: 200px;
   resize: none;
 }
+
+.listed-user-movies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.individual-user-movie {
+  display: flex;
+  background-color: lightgrey;
+  padding: 15px;
+  margin: 20px;
+  border-bottom-right-radius: 25px;
+}
+
+#indiv-user-movie-text {
+  display:flex;
+  flex-direction: column;
+  align-items: left;
+  margin-left: 20px;
+}
+
+#indiv-user-movie-text h3 {
+  inline-size: 80%;
+}
+
+#user-notes {
+  inline-size: 300px;
+}
+
+#user-movie-button {
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+  justify-content: space-between;
+}
+
+#user-movie-button button {
+  margin: 20px;
+}
+
+button:hover {
+  color: indianred;
+  background-color: white;
+}
