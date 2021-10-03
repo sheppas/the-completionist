@@ -199,3 +199,88 @@ button:hover {
   color: indianred;
   background-color: white;
 }
+
+
+@media only screen and (max-width: 600px) {
+  #nav {
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #hero {
+    background-image: url("https://live.staticflickr.com/8334/8092439985_3133a14e78_b.jpg");
+    height: 100px;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    color: white;
+    border-bottom-right-radius: 25px;
+  }
+
+  #hero h1,
+#hero-text {
+  text-align: center;
+  left: 50%;
+  font-size: medium;
+}
+
+#hero div {
+  transform: translate(0, 30%);
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: column;
+  border-bottom-right-radius: 25px;
+  background-color: lightgray;
+  align-items: center;
+  padding-top: 15px;
+}
+
+.movie-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.movie-form-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+}
+
+.movie-form-details button {
+  align-self: flex-end;
+}
+
+.notes-field {
+  padding-top: 0;
+  padding-left: 0;
+  resize: none;
+  width: auto;
+}
+
+.listed-user-movies {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
+}
+.individual-user-movie {
+  display: flex;
+  flex-direction: column;
+  background-color: lightgrey;
+  padding: 15px;
+  margin: 30px;
+  border-bottom-right-radius: 25px;
+}
+
+.individual-user-movie img {
+  align-self: center;
+}
+
+}
