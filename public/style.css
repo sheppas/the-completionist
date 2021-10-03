@@ -8,7 +8,7 @@ a {
 }
 
 nav a:hover {
-  color: grey;
+  color: indianred;
 }
 
 #nav {
@@ -84,4 +84,43 @@ form div {
 
 .individual-movie:hover{
   background-color: indianred;
+}
+
+button {
+  background-color: indianred;
+  color: white;
+  border-bottom-right-radius: 10px;
+  border-style: solid;
+  border-color: indianred;
+}
+
+.external-link {
+  text-decoration: underline;
+}
+
+.external-link:hover {
+  color: indianred;
+}
+
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: lightgray;
+  border-bottom-right-radius: 25px;
+}
+
+.image-and-add {
+  display: flex;
+  flex-direction: column;
+}
+
+.text-and-link {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.text-and-link button {
+  margin-top: 25px;
 }

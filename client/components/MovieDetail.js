@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { fetchMovieTMDB } from "../store/oneMovie";
 import { Link } from "react-router-dom";
 
-
 class SingleMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -19,9 +18,10 @@ class SingleMovie extends React.Component {
     if (!movie.id) {
       return (
         <div>
+          <hr />
           <h2>Hey, it looks like we can't find this movie!</h2>
           <p>
-            Let us know what's missing by emailing us at {" "}
+            Let us know what's missing by emailing us at{" "}
             <a href='mailto:moviehelp@thecompletionist.com'>
               moviehelp@thecompletionist.com
             </a>
@@ -34,20 +34,32 @@ class SingleMovie extends React.Component {
     }
     return (
       <div>
-        <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} width='300' height='450'/>
-        <h2>{movie.title}</h2>
-        <p>{movie.overview}</p>
-        <div>
-          <a
-            href={`https://www.themoviedb.org/movie/${movie.id}-${movie.title}`}
-            target='_blank'
-          >
-            Learn more at TMDB
-          </a>
+        <hr />
+        <div className='movie-details'>
+          <div className='img-and-add'>
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+              width='300'
+              height='450'
+            />
+          </div>
+          <div className='text-and-link'>
+            <h2>{movie.title}</h2>
+            <p>{movie.overview}</p>
+            <div>
+              <a
+                href={`https://www.themoviedb.org/movie/${movie.id}-${movie.title}`}
+                target='_blank'
+                className='external-link'
+              >
+                Learn more at TMDB
+              </a>
+            </div>
+            <Link to={"/add-movie"}>
+              <button>Add to My Movies</button>
+            </Link>
+          </div>
         </div>
-        <Link to={"/add-movie"}>
-          <button>Add to My Movies</button>
-        </Link>
       </div>
     );
   }
@@ -57,7 +69,7 @@ const mapState = (state) => {
   return {
     movie: state.oneMovie,
     user: state.auth,
-    userMovies: state.userMovies
+    userMovies: state.userMovies,
   };
 };
 
