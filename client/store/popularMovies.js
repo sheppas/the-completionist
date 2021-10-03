@@ -1,7 +1,7 @@
 import axios from "axios";
 //URIs
 const popularMovies =
-  "http://api.themoviedb.org/3/movie/popular?api_key=964c3023860303f4cb3d17fa3814e4db";
+  "https://api.themoviedb.org/3/movie/popular?api_key=964c3023860303f4cb3d17fa3814e4db";
 
 //ACTION TYPES
 const SET_MOVIES = "SET_MOVIES";
