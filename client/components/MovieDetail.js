@@ -14,6 +14,8 @@ class SingleMovie extends React.Component {
 
   render() {
     const movie = this.props.movie ? this.props.movie : {};
+    const releaseDate = movie.release_date
+    console.log(releaseDate)
 
     if (!movie.id) {
       return (
@@ -44,7 +46,7 @@ class SingleMovie extends React.Component {
             />
           </div>
           <div className='text-and-link'>
-            <h2>{movie.title}</h2>
+            <h2>{movie.title} ({releaseDate.slice(0,4)})</h2>
             <p>{movie.overview}</p>
             <div>
               <a

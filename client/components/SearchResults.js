@@ -22,6 +22,7 @@ class SearchResults extends React.Component {
       return (
         <div>
           <h2>Your Search Results</h2>
+          <div className="listed-movies">
           {movies.map((movie) => (
             <div key={movie.id} className='individual-movie'>
               <Link to={`/movies/${movie.id}`}>
@@ -30,6 +31,7 @@ class SearchResults extends React.Component {
               </Link>
             </div>
           ))}
+          </div>
         </div>
       );
   }
