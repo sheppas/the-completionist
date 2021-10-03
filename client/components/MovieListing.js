@@ -25,7 +25,14 @@ class MovieListing extends React.Component {
     }
       return (
         <div>
-          <h2>What We're Watching</h2>
+          <div id="hero">
+            <div>
+              <h1>Welcome to The Completionist</h1>
+              <p id="hero-text">Your tracker...for everything</p>
+            </div>
+          </div>
+          <h2 className="headline">What We're Watching</h2>
+          <div className="listed-movies">
           {movies.map((movie) => (
             <div key={movie.id} className='individual-movie'>
               <Link to={`/movies/${movie.id}`}>
@@ -34,6 +41,7 @@ class MovieListing extends React.Component {
               </Link>
             </div>
           ))}
+          </div>
         </div>
       );
     }

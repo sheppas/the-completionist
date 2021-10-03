@@ -30,14 +30,14 @@ class SearchFunction extends React.Component {
   render(){
     return (
       <div className="container">
-        <form onSubmit={this.handleSubmit} name="search">
-          <label className="search-label" htmlFor="search-input">Find a Movie</label>
+        <form onSubmit={this.handleSubmit} name="search" id="search-form">
+          {/* <label className="search-label" htmlFor="search-input">Find a Movie</label> */}
           <input
             name="query"
             type="text"
             value={this.state.query}
             id="search-input"
-            placeholder="Search..."
+            placeholder="Find a movie..."
             onChange={this.handleChange}
           />
           <button type="submit">Search</button>

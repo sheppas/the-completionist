@@ -5,17 +5,19 @@ import {logout} from '../store'
 import { Search } from './Search'
 
 const Navbar = ({handleClick, isLoggedIn, userId}) => (
-  <div>
-    <h1>The Completionist</h1>
+  <div id="nav">
+    <Link to="/">
+    <h1 id="header-name">The Completionist</h1>
+    </Link>
     <nav>
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/">Home</Link>
+          {/* <Link to="/">Home</Link> */}
+          <Link to={`/shelf/${userId}`}>My Movies</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
-          <Link to={`/shelf/${userId}`}>My Movies</Link>
           <Search />
         </div>
       ) : (
@@ -26,7 +28,6 @@ const Navbar = ({handleClick, isLoggedIn, userId}) => (
         </div>
       )}
     </nav>
-    <hr />
   </div>
 )
 

@@ -1,9 +1,26 @@
 body {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+nav a:hover {
+  color: grey;
+}
+
+#nav {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#search-form {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 label {
@@ -18,4 +35,53 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+#hero {
+  background-image: url("https://live.staticflickr.com/8334/8092439985_3133a14e78_b.jpg");
+  height: 300px;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: white;
+  border-bottom-right-radius: 25px;
+}
+
+#hero h1,
+#hero-text {
+  text-align: center;
+  left: 50%;
+}
+
+#hero div {
+  transform: translate(0, 150%);
+}
+
+.headline {
+  text-align: center;
+}
+
+.listed-movies {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.individual-movie {
+  background-color: lightgrey;
+  padding: 15px;
+  margin: 20px;
+  font-size: x-small;
+  border-bottom-right-radius: 25px;
+}
+
+.individual-movie p{
+  inline-size: 150px;
+}
+
+.individual-movie:hover{
+  background-color: indianred;
 }
