@@ -36,10 +36,9 @@ export const fetchUserMovie = (movieId) => {
 export const editUserMovie = (movie, userId) => {
   return async (dispatch) => {
     try {
-      console.log("this is the movie", movie)
       const {data : updated} = await axios.put(`/api/movies/${movie.id}`, movie);
     dispatch(_editUserMovie(updated));
-    history.push(`shelf/${userId}`)
+    history.push(`/shelf/${userId}`)
     } catch (err) {
       console.log(err)
     }

@@ -22,6 +22,7 @@ export const searchMovies = (searchValue, history) => async (dispatch) => {
     console.log("these are the search results", movies)
     dispatch(setResults(movies));
     history.push('/search-results')
+    document.getElementById('search-input').value='';
   } catch (err) {
     console.log(err)
   }

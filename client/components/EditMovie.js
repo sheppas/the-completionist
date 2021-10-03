@@ -38,26 +38,36 @@ class EditMovie extends React.Component {
 
   handleSubmit(event){
     event.preventDefault();
+    console.log("these are the props", this.props.oneMovie)
     const movieInDBFormat = this.createMovieDetails(this.props.oneMovie)
     this.props.editMovie(movieInDBFormat, this.props.user.id, )
   }
 
   createMovieDetails(movie) {
     return {
+      id:movie.id,
       title: movie.title,
       //THE WRONG ID NUMBER IS PULLING IN BELOW, NOT SURE HOW TO FIX ATM
-      db_id: this.props.TMBDMovie.id,
+      db_id: movie.db_id,
       poster_path: movie.poster_path,
       rating:this.state.rating,
       watched_date:this.state.watched_date,
       notes:this.state.notes
     }
+
   }
 
   render(){
     const movie = this.props.oneMovie ? this.props.oneMovie : {};
     const {rating, watched_date, notes} = this.state
 
+    if(movie === {}) {
+      return (
+        <div>
+          <h2>Loading...</h2>
+        </div>
+      )
+    }
     return (
       <div>
         <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} width='300' height='450' />

@@ -45,9 +45,10 @@ class UserMoviesListing extends React.Component {
               height='225'
             />
             <p>{movie.title}</p>
+            <p>Rating: {movie.rating}</p>
             <p>Watched: {movie.watched_date}</p>
             <p>Your Notes: {movie.notes}</p>
-            <Link to="/edit-movie">
+            <Link to={`/edit-movie/${movie.id}`}>
             <button>Edit Movie</button>
             </Link>
             <button

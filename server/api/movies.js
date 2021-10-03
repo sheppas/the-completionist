@@ -24,6 +24,7 @@ router.put("/:movieId", async (req, res, next) => {
     console.log("these are the params", req.params)
     let movie = await Movie.findByPk(req.params.movieId);
     await movie.update(req.body);
+    res.send(movie)
   } catch (err) {
     next(err);
   }

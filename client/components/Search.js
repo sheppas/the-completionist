@@ -17,7 +17,6 @@ class SearchFunction extends React.Component {
   handleSubmit(event){
     event.preventDefault();
     this.props.search(this.state.query)
-
   }
 
   handleChange(event) {
