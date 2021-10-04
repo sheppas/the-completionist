@@ -19,7 +19,6 @@ export const searchMovies = (searchValue, history) => async (dispatch) => {
     const searchString = searchValue.split(' ').join('+')
     const res = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=964c3023860303f4cb3d17fa3814e4db&query=${searchString}`);
     const movies = res.data.results;
-    console.log("these are the search results", movies)
     dispatch(setResults(movies));
     history.push('/search-results')
     document.getElementById('search-input').value='';

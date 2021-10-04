@@ -37,7 +37,6 @@ class EditMovie extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    console.log("these are the props", this.props.oneMovie);
     const movieInDBFormat = this.createMovieDetails(this.props.oneMovie);
     this.props.editMovie(movieInDBFormat, this.props.user.id);
   }
@@ -46,7 +45,6 @@ class EditMovie extends React.Component {
     return {
       id: movie.id,
       title: movie.title,
-      //THE WRONG ID NUMBER IS PULLING IN BELOW, NOT SURE HOW TO FIX ATM
       db_id: movie.db_id,
       poster_path: movie.poster_path,
       rating: this.state.rating,
