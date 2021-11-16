@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchMovieTMDB } from "../store/oneMovie";
+import { fetchUserMovies } from "../store/userMovies";
 import { Link } from "react-router-dom";
 
 class SingleMovie extends React.Component {
@@ -10,14 +11,22 @@ class SingleMovie extends React.Component {
 
   componentDidMount() {
     this.props.getMovieTMDB(this.props.match.params.movieId);
+    this.props.getUserMovies(this.props.user.id)
   }
 
   render() {
     const movie = this.props.movie ? this.props.movie : {};
     const releaseDate = movie.release_date
-    console.log(releaseDate)
+    const userMovies = this.props.userMovies ? this.props.userMovies : []
 
-    if (!movie.id) {
+    const filteredMovie = this.props.userMovies.filter((movie) => {movie.db_id === this.props.movie.id})
+
+    console.log("this is the user movie", this.props.userMovies[0].title)
+    console.log("This is the tmdb movie", this.props.movie.title)
+
+    console.log("this is the filtered movie", filteredMovie)
+
+    if (!movie.id && this.props.userMovies) {
       return (
         <div>
           <hr />
@@ -78,6 +87,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getMovieTMDB: (db_id) => dispatch(fetchMovieTMDB(db_id)),
+    getUserMovies: (userId) => dispatch(fetchUserMovies(userId))
   };
 };
 
