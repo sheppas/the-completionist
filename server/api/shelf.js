@@ -3,7 +3,7 @@ const {
   models: { Movie, User },
 } = require("../db");
 
-//GET all of a User's Movies - findAll where userId
+// GET all of a User's Movies - findAll where userId
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId);
@@ -13,6 +13,27 @@ router.get("/:userId", async (req, res, next) => {
     next(err);
   }
 });
+
+// //GET one User's Movie
+// router.get("/:userId/:movieTitle", async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.userId);
+//     const movies = await user.getMovies();
+//   } catch (err) {
+//     next(err)
+//   }
+// })
+//GET one movie off the watch list
+// router.get("/:userId", async (req, res, next) => {
+//   try {
+//     const user = await User.findByPk(req.params.userId);
+//     const movies = await user.getMovies();
+//     console.log(movies)
+//   }
+//   catch (err) {
+//     next(err)
+//   }
+// })
 
 //POST add a Movie to their Watched List
 router.post("/:userId", async (req, res, next) => {

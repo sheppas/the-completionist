@@ -11,22 +11,13 @@ class SingleMovie extends React.Component {
 
   componentDidMount() {
     this.props.getMovieTMDB(this.props.match.params.movieId);
-    this.props.getUserMovies(this.props.user.id)
   }
 
   render() {
     const movie = this.props.movie ? this.props.movie : {};
     const releaseDate = movie.release_date
-    const userMovies = this.props.userMovies ? this.props.userMovies : []
 
-    const filteredMovie = this.props.userMovies.filter((movie) => {movie.db_id === this.props.movie.id})
-
-    console.log("this is the user movie", this.props.userMovies[0].title)
-    console.log("This is the tmdb movie", this.props.movie.title)
-
-    console.log("this is the filtered movie", filteredMovie)
-
-    if (!movie.id && this.props.userMovies) {
+    if (!movie.id) {
       return (
         <div>
           <hr />
@@ -36,10 +27,7 @@ class SingleMovie extends React.Component {
             <a href='mailto:moviehelp@thecompletionist.com'>
               moviehelp@thecompletionist.com
             </a>
-            .
           </p>
-          {/* BEFORE I CAN DO THIS, I HAVE TO FIGURE OUT HOW TO FIX THE LINKING <p>Check out some others:</p>
-          <MovieListing /> */}
         </div>
       );
     }
